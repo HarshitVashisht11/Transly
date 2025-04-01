@@ -1,0 +1,54 @@
+version: '3.8'
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_URL=postgresql://postgres:12345678@db:5432/transly
+      - JWT_SECRET=ef918ba25d05cee8916ae49858d6b8a4a5bcde9668f52c3cd4cc390bd672a3d4
+      - NODE_ENV=development
+      - WHISPER_SERVICE_URL=http://whisper:8000
+    volumes:
+      - ./uploads:/app/uploads
+    depends_on:
+      - db
+      - whisper
+    networks:
+      - transly-network
+    restart: unless-stopped
+
+  whisper:
+    build:
+      context: ./whisper-cpp
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./whisper-cpp/models:/models
+    networks:
+      - transly-network
+    restart: unless-stopped
+
+  db:
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=12345678
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=transly
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - transly-network
+    restart: unless-stopped
+
+networks:
+  transly-network:
+    driver: bridge
+
+volumes:
+  postgres-data:

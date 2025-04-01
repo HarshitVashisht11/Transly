@@ -1,0 +1,24 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules and build artifacts
+node_modules
+dist
+build
+
+# Prisma generated files
+prisma/generated/
+
+# Environment variables and local config
+.env
+.env.local
+
+# Temporary files
+tmp
+temp

@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String            @id @default(uuid())
+  email         String            @unique
+  password      String
+  name          String?
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+  transcriptions TranscriptionJob[]
+}
+
+model TranscriptionJob {
+  id            String   @id @default(uuid())
+  status        String   // PENDING, PROCESSING, COMPLETED, FAILED
+  model         String   // tiny, base, small, medium, large
+  language      String   @default("auto")
+  translate     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  transcript    String?  // store transcripts directly
+  duration      Float?   // Audio duration in seconds
+  processingTime Float?  // How long the transcription took
+}

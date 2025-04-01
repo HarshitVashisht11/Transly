@@ -2,34 +2,51 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Upload, Headphones, FileText, Globe, Zap, FolderOpen, Edit } from "lucide-react";
+import {
+  Upload,
+  Headphones,
+  FileText,
+  Globe,
+  Zap,
+  FolderOpen,
+  Edit,
+} from "lucide-react";
 
 export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="fade-in">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-                Convert Audio to Text <span className="text-transly-800">in Seconds.</span>
+                Convert Audio to Text{" "}
+                <span className="text-transly-800">in Seconds.</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-xl">
-                AI-powered transcription with high accuracy and real-time processing.
-                Upload any audio file and get precise text instantly.
+                AI-powered transcription with high accuracy and real-time
+                processing. Upload any audio file and get precise text
+                instantly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/dashboard">
-                  <Button size="lg" className="btn-gradient text-white font-medium px-6 py-6">
+                  <Button
+                    size="lg"
+                    className="btn-gradient text-white font-medium px-6 py-6"
+                  >
                     <Upload className="mr-2 h-5 w-5" />
                     Upload Audio & Transcribe
                   </Button>
                 </Link>
                 <Link to="/features">
-                  <Button size="lg" variant="outline" className="font-medium px-6 py-6">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="font-medium px-6 py-6"
+                  >
                     Learn More
                   </Button>
                 </Link>
@@ -51,16 +68,20 @@ export default function Index() {
                           <Headphones className="h-6 w-6 text-transly-800" />
                         </div>
                         <div>
-                          <div className="text-sm font-medium">interview_audio.mp3</div>
-                          <div className="text-xs text-gray-500">Processing...</div>
+                          <div className="text-sm font-medium">
+                            interview_audio.mp3
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            Processing...
+                          </div>
                         </div>
                       </div>
                       <div className="h-2 bg-gray-200 rounded-full mb-4">
                         <div className="h-2 bg-transly-600 rounded-full w-2/3"></div>
                       </div>
                       <div className="text-sm text-gray-700 bg-white p-3 rounded border border-gray-200">
-                        "Thank you for joining us today. Could you tell us a bit about your
-                        background and experience with..."
+                        "Thank you for joining us today. Could you tell us a bit
+                        about your background and experience with..."
                       </div>
                     </div>
                   </div>
@@ -79,7 +100,8 @@ export default function Index() {
               Powerful Transcription Features
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Everything you need to convert audio to text efficiently and accurately.
+              Everything you need to convert audio to text efficiently and
+              accurately.
             </p>
           </div>
 
@@ -120,7 +142,8 @@ export default function Index() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Edit & Export</h3>
               <p className="text-gray-600">
-                Edit transcripts and export in multiple formats including TXT and DOCX.
+                Edit transcripts and export in multiple formats including TXT
+                and DOCX.
               </p>
             </div>
           </div>
@@ -164,7 +187,9 @@ export default function Index() {
               <div className="w-16 h-16 rounded-full bg-transly-100 flex items-center justify-center mx-auto mb-6">
                 <span className="text-xl font-bold text-transly-800">3</span>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Get Your Transcript</h3>
+              <h3 className="text-xl font-semibold mb-3">
+                Get Your Transcript
+              </h3>
               <p className="text-gray-600">
                 Download or edit your transcript in various formats.
               </p>
@@ -180,10 +205,14 @@ export default function Index() {
             Ready to Convert Your Audio to Text?
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of professionals who trust Transly for their transcription needs.
+            Join thousands of professionals who trust Transly for their
+            transcription needs.
           </p>
           <Link to="/signup">
-            <Button size="lg" className="btn-gradient text-white font-medium px-8 py-6">
+            <Button
+              size="lg"
+              className="btn-gradient text-white font-medium px-8 py-6"
+            >
               Get Started for Free
             </Button>
           </Link>
